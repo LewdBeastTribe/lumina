@@ -41,17 +41,24 @@ body{
 }
 
 .ordia,
-.veil,
 .cell{
     font-size:24px;
     letter-spacing:2px;
+}
+
+.veil{
+    font-size:24px;
+    letter-spacing:2px;
+    transition:
+        color 2s ease,
+        text-shadow 2s ease;
 }
 
 .record{
     display:flex;
     justify-content:center;
     align-items:center;
-    gap:24px;
+    gap:18px;
     flex-wrap:wrap;
 }
 
@@ -64,6 +71,7 @@ body{
 .sigil{
     display:inline-block;
     margin-right:8px;
+
     animation:sigilPulse 5s infinite ease-in-out;
 }
 
@@ -140,11 +148,11 @@ body{
 
         <div class="divider"></div>
 
-        <div class="veil" id="veil"></div>
+        <div class="cell" id="cell"></div>
 
         <div class="divider"></div>
 
-        <div class="cell" id="cell"></div>
+        <div class="veil" id="veil"></div>
 
     </div>
 
@@ -169,35 +177,49 @@ const ordiaDay =
 ((days - 1) % 365) + 1;
 
 let veil;
+let veilColor;
 
 if(ordiaDay <= 90){
 
     veil = "フローラ";
+    veilColor = "#E7B7C8";
 
 }else if(ordiaDay <= 185){
 
     veil = "ルーヴァ";
+    veilColor = "#E6B06A";
 
 }else if(ordiaDay <= 270){
 
     veil = "ハーヴェル";
+    veilColor = "#D8C06A";
 
 }else{
 
     veil = "セレス";
+    veilColor = "#DCE8F5";
 
 }
 
 document.getElementById("ordia").innerText =
 `第${ordia}オルディア`;
 
-document.getElementById("veil").innerText =
-veil;
-
 document.getElementById("cell").innerText =
 `第${days}セル`;
+
+const veilElement =
+document.getElementById("veil");
+
+veilElement.innerText = veil;
+
+veilElement.style.color =
+veilColor;
+
+veilElement.style.textShadow =
+`0 0 10px ${veilColor}66`;
 
 </script>
 
 </body>
+
 </html>
