@@ -32,7 +32,7 @@ body{
     width:100%;
     max-width:700px;
 
-    animation:borderPulse 4s infinite ease-in-out;
+    animation:borderPulse 6s infinite;
 }
 
 .title{
@@ -92,25 +92,29 @@ body{
 
 @keyframes borderPulse{
 
-    0%{
-        border-color:rgba(255,255,255,0.08);
-        box-shadow:
-            0 0 0 rgba(240,230,200,0);
-        transform:scale(1);
+    0%,100%{
+        border-color:rgba(255,255,255,0.10);
+        box-shadow:none;
     }
 
-    50%{
-        border-color:rgba(240,230,200,0.65);
-        box-shadow:
-            0 0 25px rgba(240,230,200,0.25);
-        transform:scale(1.01);
+    15%{
+        border-color:rgba(240,230,200,0.55);
+        box-shadow:0 0 20px rgba(240,230,200,0.2);
     }
 
-    100%{
-        border-color:rgba(255,255,255,0.08);
-        box-shadow:
-            0 0 0 rgba(240,230,200,0);
-        transform:scale(1);
+    25%{
+        border-color:rgba(255,255,255,0.10);
+        box-shadow:none;
+    }
+
+    35%{
+        border-color:rgba(240,230,200,0.45);
+        box-shadow:0 0 15px rgba(240,230,200,0.15);
+    }
+
+    45%,100%{
+        border-color:rgba(255,255,255,0.10);
+        box-shadow:none;
     }
 
 }
