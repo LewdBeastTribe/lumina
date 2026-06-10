@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="ja">
 
 <head>
@@ -42,6 +41,7 @@ body{
 }
 
 .ordia,
+.veil,
 .cell{
     font-size:24px;
     letter-spacing:2px;
@@ -51,13 +51,19 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    gap:40px;
+    gap:24px;
+    flex-wrap:wrap;
+}
+
+.divider{
+    width:1px;
+    height:24px;
+    background:rgba(240,230,200,0.25);
 }
 
 .sigil{
     display:inline-block;
     margin-right:8px;
-
     animation:sigilPulse 5s infinite ease-in-out;
 }
 
@@ -123,18 +129,24 @@ body{
 
 <div class="card">
 
-<div class="title">
-    <span class="sigil">✦</span>
-    LUMINA
-</div>
+    <div class="title">
+        <span class="sigil">✦</span>
+        LUMINA
+    </div>
 
-<div class="record">
+    <div class="record">
 
-    <div class="ordia" id="ordia"></div>
+        <div class="ordia" id="ordia"></div>
 
-    <div class="cell" id="cell"></div>
+        <div class="divider"></div>
 
-</div>
+        <div class="veil" id="veil"></div>
+
+        <div class="divider"></div>
+
+        <div class="cell" id="cell"></div>
+
+    </div>
 
 </div>
 
@@ -153,8 +165,34 @@ Math.floor(
 const ordia =
 Math.floor((days - 1) / 365) + 1;
 
+const ordiaDay =
+((days - 1) % 365) + 1;
+
+let veil;
+
+if(ordiaDay <= 90){
+
+    veil = "フローラ";
+
+}else if(ordiaDay <= 185){
+
+    veil = "ルーヴァ";
+
+}else if(ordiaDay <= 270){
+
+    veil = "ハーヴェル";
+
+}else{
+
+    veil = "セレス";
+
+}
+
 document.getElementById("ordia").innerText =
 `第${ordia}オルディア`;
+
+document.getElementById("veil").innerText =
+veil;
 
 document.getElementById("cell").innerText =
 `第${days}セル`;
