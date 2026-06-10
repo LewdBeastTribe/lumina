@@ -1,13 +1,17 @@
 <!DOCTYPE html>
+
 <html lang="ja">
+
 <head>
 <meta charset="UTF-8">
 <title>LUMINA</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
+
 body{
     margin:0;
     background:#0d0f17;
@@ -26,6 +30,8 @@ body{
     border-radius:20px;
     background:rgba(255,255,255,0.03);
     min-width:300px;
+
+    animation:borderPulse 8s infinite ease-in-out;
 }
 
 .title{
@@ -42,20 +48,80 @@ body{
 .cell{
     font-size:22px;
 }
+
+.sigil{
+    display:inline-block;
+    margin-right:8px;
+
+    animation:sigilPulse 5s infinite ease-in-out;
+}
+
+@keyframes sigilPulse{
+
+    0%{
+        opacity:1;
+        transform:scale(1);
+    }
+
+    25%{
+        opacity:0.7;
+        transform:scale(0.95);
+    }
+
+    50%{
+        opacity:0.5;
+        transform:scale(0.9);
+    }
+
+    75%{
+        opacity:0.7;
+        transform:scale(0.95);
+    }
+
+    100%{
+        opacity:1;
+        transform:scale(1);
+    }
+
+}
+
+@keyframes borderPulse{
+
+    0%{
+        border-color:rgba(255,255,255,0.12);
+        box-shadow:0 0 0 rgba(255,255,255,0);
+    }
+
+    50%{
+        border-color:rgba(240,230,200,0.35);
+        box-shadow:0 0 12px rgba(240,230,200,0.12);
+    }
+
+    100%{
+        border-color:rgba(255,255,255,0.12);
+        box-shadow:0 0 0 rgba(255,255,255,0);
+    }
+
+}
+
 </style>
 
 </head>
+
 <body>
 
 <div class="card">
 
+```
 <div class="title">
-✦ LUMINA
+    <span class="sigil">✦</span>
+    LUMINA
 </div>
 
 <div class="ordia" id="ordia"></div>
 
 <div class="cell" id="cell"></div>
+```
 
 </div>
 
@@ -67,8 +133,8 @@ const today = new Date();
 
 const days =
 Math.floor(
-(today - startDate) /
-(1000 * 60 * 60 * 24)
+    (today - startDate) /
+    (1000 * 60 * 60 * 24)
 ) + 1;
 
 const ordia =
