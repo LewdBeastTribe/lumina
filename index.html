@@ -1,7 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>LUMINA</title>
+
+<style>
+body{
+    margin:0;
+    background:#0d0f17;
+    color:#f0e6c8;
+    font-family:serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.card{
+    text-align:center;
+    border:1px solid rgba(255,255,255,0.15);
+    padding:40px;
+    border-radius:20px;
+    background:rgba(255,255,255,0.03);
+    min-width:300px;
+}
+
+.title{
+    font-size:14px;
+    letter-spacing:4px;
+    margin-bottom:20px;
+}
+
+.ordia{
+    font-size:28px;
+    margin-bottom:10px;
+}
+
+.cell{
+    font-size:22px;
+}
+</style>
+
+</head>
 <body>
-<h1>LUMINA</h1>
-<p>Hello Noctyra</p>
+
+<div class="card">
+
+<div class="title">
+🌙 LUMINA
+</div>
+
+<div class="ordia" id="ordia"></div>
+
+<div class="cell" id="cell"></div>
+
+</div>
+
+<script>
+
+const startDate = new Date("2025-12-20");
+
+const today = new Date();
+
+const days =
+Math.floor(
+(today - startDate) /
+(1000 * 60 * 60 * 24)
+) + 1;
+
+const ordia =
+Math.floor((days - 1) / 365) + 1;
+
+document.getElementById("ordia").innerText =
+`第${ordia}オルディア`;
+
+document.getElementById("cell").innerText =
+`第${days}セル`;
+
+</script>
+
 </body>
 </html>
