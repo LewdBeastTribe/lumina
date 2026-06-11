@@ -11,27 +11,27 @@
 
 <style>
 
-html, body{
-    margin:0;
-    padding:0;
-    width:100%;
-    max-width:100%;
-    overflow-x:hidden;
-}
-
 body{
-    min-height:100vh;
-    min-height:100dvh;
-
+    margin:0;
+    background:#0d0f17;
+    color:#f0e6c8;
+    font-family:'Cinzel', serif;
     display:flex;
     justify-content:center;
     align-items:center;
+    height:100vh;
 }
 
 .card{
-    width:100%;
-    max-width:520px;
-    box-sizing:border-box;
+    text-align:center;
+    border:1px solid rgba(255,255,255,0.15);
+    padding:28px;
+    border-radius:20px;
+    background:rgba(255,255,255,0.03);
+
+    width:min(90vw,520px);
+
+    animation:borderPulse 4s infinite ease-in-out;
 }
 
 .title{
