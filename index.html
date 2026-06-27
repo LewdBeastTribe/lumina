@@ -95,7 +95,7 @@ html, body{
 .ordia,
 .cell,
 .veil{
-    font-size:24px;
+    font-size:clamp(15px,2.8vw,24px);
     letter-spacing:2px;
 }
 
@@ -103,6 +103,39 @@ html, body{
     width:1px;
     height:24px;
     background:rgba(240,230,200,0.25);
+}
+
+/* =========================
+   📱 SMARTPHONE
+========================= */
+
+@media (max-width:600px){
+
+    .card{
+        padding:18px;
+    }
+
+    .title{
+        font-size:12px;
+        letter-spacing:3px;
+        margin-bottom:16px;
+    }
+
+    .record{
+        gap:8px;
+    }
+
+    .ordia,
+    .cell,
+    .veil{
+        font-size:clamp(14px,4vw,18px);
+        letter-spacing:1px;
+    }
+
+    .divider{
+        height:18px;
+    }
+
 }
 
 /* =========================
